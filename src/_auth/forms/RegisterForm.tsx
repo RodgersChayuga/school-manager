@@ -1,4 +1,6 @@
 import * as z from "zod";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import {
@@ -14,29 +16,32 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { RegistrationSchema } from "@/lib/validation";
 import Loader from "@/components/shared/Loader";
-import { Link } from "react-router-dom";
-import { createUserAccount } from "@/lib/appwrite/api";
 
 const RegisterForm = () => {
-  const isLoading = false;
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof RegistrationSchema>>({
     resolver: zodResolver(RegistrationSchema),
     defaultValues: {
-      email: "",
-      password: "",
       firstName: "",
       lastName: "",
+      email: "",
+      password: "",
       confirmPassword: "",
     },
   });
 
   // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof RegistrationSchema>) {
-    const newUser = await createUserAccount(values);
+  function onSubmit(values: z.infer<typeof RegistrationSchema>) {
+    setIsLoading(true);
 
-    console.log("created user: ", newUser);
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
+
+    console.log(values);
   }
 
   return (
@@ -61,12 +66,7 @@ const RegisterForm = () => {
               <FormItem>
                 <FormLabel>First Name</FormLabel>
                 <FormControl>
-                  <Input
-                    type="text"
-                    className="shad-input"
-                    {...field}
-                    autoComplete="true"
-                  />
+                  <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -79,12 +79,7 @@ const RegisterForm = () => {
               <FormItem>
                 <FormLabel>Last Name</FormLabel>
                 <FormControl>
-                  <Input
-                    type="text"
-                    className="shad-input"
-                    {...field}
-                    autoComplete="true"
-                  />
+                  <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -97,12 +92,7 @@ const RegisterForm = () => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input
-                    type="email"
-                    className="shad-input"
-                    {...field}
-                    autoComplete="true"
-                  />
+                  <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -115,12 +105,7 @@ const RegisterForm = () => {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input
-                    type="password"
-                    className="shad-input"
-                    {...field}
-                    autoComplete="true"
-                  />
+                  <Input type="password" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -134,12 +119,7 @@ const RegisterForm = () => {
               <FormItem>
                 <FormLabel>Confirm Password</FormLabel>
                 <FormControl>
-                  <Input
-                    type="password"
-                    className="shad-input"
-                    {...field}
-                    autoComplete="true"
-                  />
+                  <Input type="password" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -148,7 +128,7 @@ const RegisterForm = () => {
           <Button type="submit" className="mt-4 shad-button_primary">
             {isLoading ? (
               <div className="gap-2 flex-center">
-                <Loader /> Loading...
+                <Loader /> Authenticating...
               </div>
             ) : (
               "Sign up"
