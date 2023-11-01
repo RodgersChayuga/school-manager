@@ -1,4 +1,6 @@
 import * as z from "zod";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import {
@@ -14,10 +16,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { RegistrationSchema } from "@/lib/validation";
 import Loader from "@/components/shared/Loader";
-import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
-  const isLoading = true;
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof RegistrationSchema>>({
@@ -33,8 +35,12 @@ const RegisterForm = () => {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof RegistrationSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+    setIsLoading(true);
+
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
+
     console.log(values);
   }
 
@@ -122,7 +128,7 @@ const RegisterForm = () => {
           <Button type="submit" className="mt-4 shad-button_primary">
             {isLoading ? (
               <div className="gap-2 flex-center">
-                <Loader /> Loading...
+                <Loader /> Authenticating...
               </div>
             ) : (
               "Sign up"
