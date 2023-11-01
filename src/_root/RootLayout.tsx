@@ -1,10 +1,18 @@
-import { Button } from "@/components/ui/button";
+import { Navigate, Outlet } from "react-router-dom";
 
 const RootLayout = () => {
+  const isAuthenticated = true;
+
   return (
-    <div>
-      <Button>Click me</Button>
-    </div>
+    <>
+      {isAuthenticated ? (
+        <section className="flex flex-col items-center flex-1 w-screen h-screen ">
+          <Outlet />
+        </section>
+      ) : (
+        <Navigate to="/" />
+      )}
+    </>
   );
 };
 
