@@ -17,3 +17,11 @@ export const RegistrationSchema = z
     message: "Password do not match",
     path: ["confirmPassword"],
   });
+
+export const SigninSchema = z.object({
+  email: z
+    .string()
+    .min(2, { message: "This field has to be field" })
+    .email("This is not a valid email."),
+  password: z.string().min(8, { message: "Must be at least 8 characters" }),
+});
