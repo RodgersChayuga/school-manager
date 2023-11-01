@@ -1,0 +1,469 @@
+{
+  "applications": [
+    {
+      "name": "Application 1",
+      "university": "University A",
+      "country": "Country 1",
+      "duration": 2,
+      "cost": 15000,
+      "deadline": "2023-11-15",
+      "language": "English"
+    },
+    {
+      "name": "Application 2",
+      "university": "University B",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 20000,
+      "deadline": "2023-12-01",
+      "language": "French"
+    },
+    {
+      "name": "Application 3",
+      "university": "University C",
+      "country": "Country 1",
+      "duration": 1,
+      "cost": 12000,
+      "deadline": "2023-10-30",
+      "language": "English"
+    },
+    {
+      "name": "Application 4",
+      "university": "University D",
+      "country": "Country 3",
+      "duration": 4,
+      "cost": 25000,
+      "deadline": "2023-11-30",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 5",
+      "university": "University E",
+      "country": "Country 2",
+      "duration": 2,
+      "cost": 18000,
+      "deadline": "2023-11-25",
+      "language": "English"
+    },
+    {
+      "name": "Application 6",
+      "university": "University A",
+      "country": "Country 4",
+      "duration": 3,
+      "cost": 22000,
+      "deadline": "2023-12-10",
+      "language": "French"
+    },
+    {
+      "name": "Application 7",
+      "university": "University B",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 16000,
+      "deadline": "2023-11-20",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 8",
+      "university": "University C",
+      "country": "Country 1",
+      "duration": 1,
+      "cost": 13000,
+      "deadline": "2023-11-05",
+      "language": "French"
+    },
+    {
+      "name": "Application 9",
+      "university": "University D",
+      "country": "Country 4",
+      "duration": 4,
+      "cost": 24000,
+      "deadline": "2023-12-05",
+      "language": "English"
+    },
+    {
+      "name": "Application 10",
+      "university": "University E",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 19000,
+      "deadline": "2023-11-28",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 11",
+      "university": "University C",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 17000,
+      "deadline": "2023-11-10",
+      "language": "English"
+    },
+    {
+      "name": "Application 12",
+      "university": "University D",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 21000,
+      "deadline": "2023-12-05",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 13",
+      "university": "University E",
+      "country": "Country 1",
+      "duration": 1,
+      "cost": 14000,
+      "deadline": "2023-11-01",
+      "language": "French"
+    },
+    {
+      "name": "Application 14",
+      "university": "University A",
+      "country": "Country 4",
+      "duration": 4,
+      "cost": 26000,
+      "deadline": "2023-12-15",
+      "language": "English"
+    },
+    {
+      "name": "Application 15",
+      "university": "University B",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 17500,
+      "deadline": "2023-11-12",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 16",
+      "university": "University C",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 19000,
+      "deadline": "2023-12-10",
+      "language": "English"
+    },
+    {
+      "name": "Application 17",
+      "university": "University D",
+      "country": "Country 1",
+      "duration": 1,
+      "cost": 13000,
+      "deadline": "2023-11-03",
+      "language": "French"
+    },
+    {
+      "name": "Application 18",
+      "university": "University E",
+      "country": "Country 4",
+      "duration": 4,
+      "cost": 24000,
+      "deadline": "2023-12-07",
+      "language": "English"
+    },
+    {
+      "name": "Application 19",
+      "university": "University A",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 16500,
+      "deadline": "2023-11-18",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 20",
+      "university": "University B",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 22000,
+      "deadline": "2023-12-03",
+      "language": "French"
+    },
+    {
+      "name": "Application 21",
+      "university": "University C",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 17000,
+      "deadline": "2023-11-10",
+      "language": "English"
+    },
+    {
+      "name": "Application 22",
+      "university": "University D",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 21000,
+      "deadline": "2023-12-05",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 23",
+      "university": "University E",
+      "country": "Country 1",
+      "duration": 1,
+      "cost": 14000,
+      "deadline": "2023-11-01",
+      "language": "French"
+    },
+    {
+      "name": "Application 24",
+      "university": "University A",
+      "country": "Country 4",
+      "duration": 4,
+      "cost": 26000,
+      "deadline": "2023-12-15",
+      "language": "English"
+    },
+    {
+      "name": "Application 25",
+      "university": "University B",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 17500,
+      "deadline": "2023-11-12",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 26",
+      "university": "University C",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 19000,
+      "deadline": "2023-12-10",
+      "language": "English"
+    },
+    {
+      "name": "Application 27",
+      "university": "University D",
+      "country": "Country 1",
+      "duration": 1,
+      "cost": 13000,
+      "deadline": "2023-11-03",
+      "language": "French"
+    },
+    {
+      "name": "Application 28",
+      "university": "University E",
+      "country": "Country 4",
+      "duration": 4,
+      "cost": 24000,
+      "deadline": "2023-12-07",
+      "language": "English"
+    },
+    {
+      "name": "Application 29",
+      "university": "University A",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 16500,
+      "deadline": "2023-11-18",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 30",
+      "university": "University B",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 22000,
+      "deadline": "2023-12-03",
+      "language": "French"
+    },
+    {
+      "name": "Application 31",
+      "university": "University C",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 17000,
+      "deadline": "2023-11-10",
+      "language": "English"
+    },
+    {
+      "name": "Application 32",
+      "university": "University D",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 21000,
+      "deadline": "2023-12-05",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 33",
+      "university": "University E",
+      "country": "Country 1",
+      "duration": 1,
+      "cost": 14000,
+      "deadline": "2023-11-01",
+      "language": "French"
+    },
+    {
+      "name": "Application 34",
+      "university": "University A",
+      "country": "Country 4",
+      "duration": 4,
+      "cost": 26000,
+      "deadline": "2023-12-15",
+      "language": "English"
+    },
+    {
+      "name": "Application 35",
+      "university": "University B",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 17500,
+      "deadline": "2023-11-12",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 36",
+      "university": "University C",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 19000,
+      "deadline": "2023-12-10",
+      "language": "English"
+    },
+    {
+      "name": "Application 37",
+      "university": "University D",
+      "country": "Country 1",
+      "duration": 1,
+      "cost": 13000,
+      "deadline": "2023-11-03",
+      "language": "French"
+    },
+    {
+      "name": "Application 38",
+      "university": "University E",
+      "country": "Country 4",
+      "duration": 4,
+      "cost": 24000,
+      "deadline": "2023-12-07",
+      "language": "English"
+    },
+    {
+      "name": "Application 39",
+      "university": "University A",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 16500,
+      "deadline": "2023-11-18",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 40",
+      "university": "University B",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 22000,
+      "deadline": "2023-12-03",
+      "language": "French"
+    },
+    {
+      "name": "Application 41",
+      "university": "University C",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 17000,
+      "deadline": "2023-11-10",
+      "language": "English"
+    },
+    {
+      "name": "Application 42",
+      "university": "University D",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 21000,
+      "deadline": "2023-12-05",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 43",
+      "university": "University E",
+      "country": "Country 1",
+      "duration": 1,
+      "cost": 14000,
+      "deadline": "2023-11-01",
+      "language": "French"
+    },
+    {
+      "name": "Application 44",
+      "university": "University A",
+      "country": "Country 4",
+      "duration": 4,
+      "cost": 26000,
+      "deadline": "2023-12-15",
+      "language": "English"
+    },
+    {
+      "name": "Application 45",
+      "university": "University B",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 17500,
+      "deadline": "2023-11-12",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 46",
+      "university": "University C",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 19000,
+      "deadline": "2023-12-10",
+      "language": "English"
+    },
+    {
+      "name": "Application 47",
+      "university": "University D",
+      "country": "Country 1",
+      "duration": 1,
+      "cost": 13000,
+      "deadline": "2023-11-03",
+      "language": "French"
+    },
+    {
+      "name": "Application 48",
+      "university": "University E",
+      "country": "Country 4",
+      "duration": 4,
+      "cost": 24000,
+      "deadline": "2023-12-07",
+      "language": "English"
+    },
+    {
+      "name": "Application 49",
+      "university": "University A",
+      "country": "Country 3",
+      "duration": 2,
+      "cost": 16500,
+      "deadline": "2023-11-18",
+      "language": "Turkish"
+    },
+    {
+      "name": "Application 50",
+      "university": "University B",
+      "country": "Country 2",
+      "duration": 3,
+      "cost": 22000,
+      "deadline": "2023-12-03",
+      "language": "French"
+    }
+  ],
+  "filters": {
+    "countries": ["Country 1", "Country 2", "Country 3", "Country 4"],
+    "universities": [
+      "University A",
+      "University B",
+      "University C",
+      "University D"
+    ],
+    "durations": [1, 2, 3, 4, 5, 6, 7, 8],
+    "languages": ["English", "French", "Turkish"],
+    "costRange": {
+      "min": 1000,
+      "max": 50000
+    }
+  }
+}
