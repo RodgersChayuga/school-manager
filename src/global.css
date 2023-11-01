@@ -72,7 +72,7 @@
   }
 
   body {
-    @apply min-h-screen text-white bg-dark-1 font-inter;
+    @apply min-h-screen font-inter;
   }
 }
 
