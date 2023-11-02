@@ -1,10 +1,10 @@
-import type { Option } from "@/types"
-import { CheckIcon, PlusCircledIcon } from "@radix-ui/react-icons"
-import { type Column } from "@tanstack/react-table"
+import type { Option } from "@/types";
+import { CheckIcon, PlusCircledIcon } from "@radix-ui/react-icons";
+import { type Column } from "@tanstack/react-table";
 
-import { cn } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -13,19 +13,20 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/components/ui/command"
+} from "@/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import { Separator } from "@/components/ui/separator"
+} from "@/components/ui/popover";
+import { Separator } from "@/components/ui/separator";
+import React from "react";
 
 interface DataTableFacetedFilter<TData, TValue> {
-  column?: Column<TData, TValue>
-  title?: string
-  options: Option[]
-  variant?: "popover" | "command"
+  column?: Column<TData, TValue>;
+  title?: string;
+  options: Option[];
+  variant?: "popover" | "command";
 }
 
 export function DataTableFacetedFilter<TData, TValue>({
@@ -34,7 +35,7 @@ export function DataTableFacetedFilter<TData, TValue>({
   options,
   variant = "popover",
 }: DataTableFacetedFilter<TData, TValue>) {
-  const selectedValues = new Set(column?.getFilterValue() as string[])
+  const selectedValues = new Set(column?.getFilterValue() as string[]);
 
   return (
     <>
@@ -42,14 +43,14 @@ export function DataTableFacetedFilter<TData, TValue>({
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="outline" size="sm" className="h-8 border-dashed">
-              <PlusCircledIcon className="mr-2 h-4 w-4" />
+              <PlusCircledIcon className="w-4 h-4 mr-2" />
               {title}
               {selectedValues?.size > 0 && (
                 <>
-                  <Separator orientation="vertical" className="mx-2 h-4" />
+                  <Separator orientation="vertical" className="h-4 mx-2" />
                   <Badge
                     variant="secondary"
-                    className="rounded-sm px-1 font-normal lg:hidden"
+                    className="px-1 font-normal rounded-sm lg:hidden"
                   >
                     {selectedValues.size}
                   </Badge>
@@ -57,7 +58,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                     {selectedValues.size > 2 ? (
                       <Badge
                         variant="secondary"
-                        className="rounded-sm px-1 font-normal"
+                        className="px-1 font-normal rounded-sm"
                       >
                         {selectedValues.size} selected
                       </Badge>
@@ -68,7 +69,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                           <Badge
                             variant="secondary"
                             key={option.value}
-                            className="rounded-sm px-1 font-normal"
+                            className="px-1 font-normal rounded-sm"
                           >
                             {option.label}
                           </Badge>
@@ -86,20 +87,20 @@ export function DataTableFacetedFilter<TData, TValue>({
                 <CommandEmpty>No results found.</CommandEmpty>
                 <CommandGroup>
                   {options.map((option) => {
-                    const isSelected = selectedValues.has(option.value)
+                    const isSelected = selectedValues.has(option.value);
                     return (
                       <CommandItem
                         key={option.value}
                         onSelect={() => {
                           if (isSelected) {
-                            selectedValues.delete(option.value)
+                            selectedValues.delete(option.value);
                           } else {
-                            selectedValues.add(option.value)
+                            selectedValues.add(option.value);
                           }
-                          const filterValues = Array.from(selectedValues)
+                          const filterValues = Array.from(selectedValues);
                           column?.setFilterValue(
                             filterValues.length ? filterValues : undefined
-                          )
+                          );
                         }}
                       >
                         <div
@@ -117,13 +118,13 @@ export function DataTableFacetedFilter<TData, TValue>({
                         </div>
                         {option.icon && (
                           <option.icon
-                            className="mr-2 h-4 w-4 text-muted-foreground"
+                            className="w-4 h-4 mr-2 text-muted-foreground"
                             aria-hidden="true"
                           />
                         )}
                         <span>{option.label}</span>
                       </CommandItem>
-                    )
+                    );
                   })}
                 </CommandGroup>
                 {selectedValues.size > 0 && (
@@ -149,26 +150,26 @@ export function DataTableFacetedFilter<TData, TValue>({
             placeholder={title}
             autoFocus
             showIcon={false}
-            className="flex h-8 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+            className="flex w-full h-8 px-3 py-1 text-sm transition-colors border rounded-md shadow-sm border-input bg-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
           />
           <CommandList className="mt-1">
             <CommandEmpty>No results found.</CommandEmpty>
             <CommandGroup>
               {options.map((option) => {
-                const isSelected = selectedValues.has(option.value)
+                const isSelected = selectedValues.has(option.value);
                 return (
                   <CommandItem
                     key={option.value}
                     onSelect={() => {
                       if (isSelected) {
-                        selectedValues.delete(option.value)
+                        selectedValues.delete(option.value);
                       } else {
-                        selectedValues.add(option.value)
+                        selectedValues.add(option.value);
                       }
-                      const filterValues = Array.from(selectedValues)
+                      const filterValues = Array.from(selectedValues);
                       column?.setFilterValue(
                         filterValues.length ? filterValues : undefined
-                      )
+                      );
                     }}
                   >
                     <div
@@ -183,13 +184,13 @@ export function DataTableFacetedFilter<TData, TValue>({
                     </div>
                     {option.icon && (
                       <option.icon
-                        className="mr-2 h-4 w-4 text-muted-foreground"
+                        className="w-4 h-4 mr-2 text-muted-foreground"
                         aria-hidden="true"
                       />
                     )}
                     <span>{option.label}</span>
                   </CommandItem>
-                )
+                );
               })}
             </CommandGroup>
             {selectedValues.size > 0 && (
@@ -209,5 +210,5 @@ export function DataTableFacetedFilter<TData, TValue>({
         </Command>
       )}
     </>
-  )
+  );
 }

@@ -1,9 +1,11 @@
 import * as React from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useLocation, useNavigate } from "react-router-dom";
+
 // import type {
 //   DataTableFilterableColumn,
 //   DataTableSearchableColumn,
 // } from "@/types"
+
 import {
   flexRender,
   getCoreRowModel,
@@ -50,9 +52,16 @@ export function DataTable<TData, TValue>({
   searchableColumns = [],
   advancedFilter = false,
 }: DataTableProps<TData, TValue>) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const navigate = useNavigate();
+  // const searchParams = useSearchParams();
+
+  // State for URL parameters
+  const location = useLocation();
+  const pathname = location.pathname;
+  const searchParams = React.useMemo(
+    () => new URLSearchParams(location.search),
+    [location]
+  );
 
   // Search params
   const page = searchParams?.get("page") ?? "1";
@@ -114,14 +123,11 @@ export function DataTable<TData, TValue>({
   }, [fallbackPage, fallbackPerPage]);
 
   React.useEffect(() => {
-    router.push(
+    navigate(
       `${pathname}?${createQueryString({
         page: pageIndex + 1,
         per_page: pageSize,
-      })}`,
-      {
-        scroll: false,
-      }
+      })}`
     );
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -136,7 +142,7 @@ export function DataTable<TData, TValue>({
   ]);
 
   React.useEffect(() => {
-    router.push(
+    navigate(
       `${pathname}?${createQueryString({
         page,
         sort: sorting[0]?.id
@@ -167,7 +173,7 @@ export function DataTable<TData, TValue>({
   React.useEffect(() => {
     for (const column of debouncedSearchableColumnFilters) {
       if (typeof column.value === "string") {
-        router.push(
+        navigate(
           `${pathname}?${createQueryString({
             page: 1,
             [column.id]: typeof column.value === "string" ? column.value : null,
@@ -181,7 +187,7 @@ export function DataTable<TData, TValue>({
         searchableColumns.find((column) => column.id === key) &&
         !debouncedSearchableColumnFilters.find((column) => column.id === key)
       ) {
-        router.push(
+        navigate(
           `${pathname}?${createQueryString({
             page: 1,
             [key]: null,
@@ -195,7 +201,7 @@ export function DataTable<TData, TValue>({
   React.useEffect(() => {
     for (const column of filterableColumnFilters) {
       if (typeof column.value === "object" && Array.isArray(column.value)) {
-        router.push(
+        navigate(
           `${pathname}?${createQueryString({
             page: 1,
             [column.id]: column.value.join("."),
@@ -209,7 +215,7 @@ export function DataTable<TData, TValue>({
         filterableColumns.find((column) => column.id === key) &&
         !filterableColumnFilters.find((column) => column.id === key)
       ) {
-        router.push(
+        navigate(
           `${pathname}?${createQueryString({
             page: 1,
             [key]: null,

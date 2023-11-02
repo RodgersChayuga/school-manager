@@ -1,5 +1,8 @@
+import { DataTable } from "@/components/ui/table/data-table";
+import React from "react";
+
 const Home = () => {
-  return <div>Home</div>;
+  return <DataTable columns={} data={} pageCount={} filterableColumns={} />;
 };
 
 export default Home;

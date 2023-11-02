@@ -1,38 +1,38 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import type {
   DataTableFilterableColumn,
   DataTableFilterOption,
   DataTableSearchableColumn,
-} from "@/types"
-import { CaretSortIcon, CheckIcon, PlusIcon } from "@radix-ui/react-icons"
+} from "@/types";
+import { CaretSortIcon, CheckIcon, PlusIcon } from "@radix-ui/react-icons";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-} from "@/components/ui/command"
+} from "@/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
+} from "@/components/ui/popover";
 
 interface DataTableAdvancedFilterProps<TData> {
-  filterableColumns?: DataTableFilterableColumn<TData>[]
-  searchableColumns?: DataTableSearchableColumn<TData>[]
-  selectedOptions: DataTableFilterOption<TData>[]
+  filterableColumns?: DataTableFilterableColumn<TData>[];
+  searchableColumns?: DataTableSearchableColumn<TData>[];
+  selectedOptions: DataTableFilterOption<TData>[];
   setSelectedOptions: React.Dispatch<
     React.SetStateAction<DataTableFilterOption<TData>[]>
-  >
-  filterOpen: boolean
-  setFilterOpen: React.Dispatch<React.SetStateAction<boolean>>
-  isSwitchable?: boolean
+  >;
+  filterOpen: boolean;
+  setFilterOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isSwitchable?: boolean;
 }
 
 export function DataTableAdvancedFilter<TData>({
@@ -44,29 +44,29 @@ export function DataTableAdvancedFilter<TData>({
   setFilterOpen,
   isSwitchable = false,
 }: DataTableAdvancedFilterProps<TData>) {
-  const [value, setValue] = React.useState("")
-  const [open, setOpen] = React.useState(false)
+  const [value, setValue] = React.useState("");
+  const [open, setOpen] = React.useState(false);
 
   const options: DataTableFilterOption<TData>[] = React.useMemo(() => {
     const searchableOptions = searchableColumns.map((column) => ({
       label: String(column.id),
       value: column.id,
       items: [],
-    }))
+    }));
     const filterableOptions = filterableColumns.map((column) => ({
       label: column.title,
       value: column.id,
       items: column.options,
-    }))
-    return [...searchableOptions, ...filterableOptions]
-  }, [searchableColumns, filterableColumns])
+    }));
+    return [...searchableOptions, ...filterableOptions];
+  }, [searchableColumns, filterableColumns]);
 
   React.useEffect(() => {
     if (selectedOptions.length === 0) {
-      setFilterOpen(false)
-      setValue("")
+      setFilterOpen(false);
+      setValue("");
     }
-  }, [selectedOptions, setFilterOpen])
+  }, [selectedOptions, setFilterOpen]);
 
   return (
     <>
@@ -78,7 +78,7 @@ export function DataTableAdvancedFilter<TData>({
         >
           Filter
           <CaretSortIcon
-            className="ml-2 h-4 w-4 opacity-50"
+            className="w-4 h-4 ml-2 opacity-50"
             aria-hidden="true"
           />
         </Button>
@@ -97,7 +97,7 @@ export function DataTableAdvancedFilter<TData>({
                   className="rounded-full"
                 >
                   <PlusIcon
-                    className="mr-2 h-4 w-4 opacity-50"
+                    className="w-4 h-4 mr-2 opacity-50"
                     aria-hidden="true"
                   />
                   Add filter
@@ -106,7 +106,7 @@ export function DataTableAdvancedFilter<TData>({
             ) : (
               <Button variant="outline" size="sm" role="combobox">
                 Filter
-                <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                <CaretSortIcon className="w-4 h-4 ml-2 opacity-50 shrink-0" />
               </Button>
             )}
           </PopoverTrigger>
@@ -127,20 +127,20 @@ export function DataTableAdvancedFilter<TData>({
                       key={String(option.value)}
                       className="capitalize"
                       onSelect={(currentValue) => {
-                        setValue(currentValue === value ? "" : currentValue)
-                        setOpen(false)
+                        setValue(currentValue === value ? "" : currentValue);
+                        setOpen(false);
                         setFilterOpen(
                           selectedOptions.length > 0 ? true : !filterOpen
-                        )
+                        );
                         setSelectedOptions?.((prev) => {
                           if (currentValue === value) {
                             return prev.filter(
                               (item) => item.value !== option.value
-                            )
+                            );
                           } else {
-                            return [...prev, option]
+                            return [...prev, option];
                           }
-                        })
+                        });
                       }}
                     >
                       {option.label}
@@ -159,5 +159,5 @@ export function DataTableAdvancedFilter<TData>({
         </Popover>
       )}
     </>
-  )
+  );
 }
